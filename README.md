@@ -2,9 +2,9 @@
 # [日本語版 README はこちら (Japanese README)](README_ja.md)
 ## Overview
 
-Multi-Part Boolean is a Blender addon designed to execute complex boolean operations in a single step by processing objects composed of multiple, overlapping, yet disconnected mesh parts. The result is generated in a new collection for each execution, leaving the original objects unaffected.
-For example, it can perform a boolean operation on an object like a figure's hair part, which consists of a collection of independent strands, while maintaining the separation of each strand in the final result.
-
+Multi-Part Boolean is a Blender addon designed to execute complex boolean operations in a single step by processing objects composed of multiple, overlapping, yet disconnected mesh parts. The result is generated in a new collection for each execution, leaving the original objects unaffected.  
+For example, it can perform a boolean operation on an object like a figure's hair part, which consists of a collection of independent strands, while maintaining the separation of each strand in the final result.  
+Use this addon when Blender's standard boolean operations fail to properly close holes or when you want to avoid self-intersection issues that can occur with standard booleans.
 
 
 
@@ -54,3 +54,19 @@ https://github.com/user-attachments/assets/d1baf137-dc0c-4561-b100-fb0221a7138c
 
 ## License
 Multi-Part Boolean is released under the **GNU General Public License v3 (GPLv3)**. This addon can be freely used, modified, and distributed, but any derivative works must also be released under the same license. For details, please refer to the [LICENSE](LICENSE) file.
+
+## Support the Developer / Buy Me a Coffee? ☕
+
+If you find **Multi-Part Boolean** useful and would like to support its development, I’d be thrilled if you could buy me a coffee! 
+Any support is greatly appreciated and helps keep me motivated to maintain this addon and create more helpful tools for the Blender community.
+
+*   [Donate via PayPal](https://paypal.me/kiutsugawa?country.x=JP&locale.x=ja_JP)
+
+
+Thank you for your support!
+
+## Author
+
+- **ALLAN-mfQ (Q)**  
+- [X](https://x.com/Qdegozaimasu)  
+- [YouTube](https://www.youtube.com/channel/UCiIz3zCHwNroYE9h4h5BDew)

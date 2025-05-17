@@ -1,13 +1,11 @@
 bl_info = {
-    "name": "Multi-Part Boolean", # アドオン名は英語で統一
-    "author": "OpenAI ChatGPT, Enhanced by Grok",
-    "version": (1, 3, 0), # バージョンアップ (国際化対応)
+    "name": "Multi-Part Boolean", 
+    "author": "ALLAN-mfQ",
+    "version": (1, 0, 0), 
     "blender": (4, 3, 0),
-    "location": "3D View > Sidebar > Multi-Part Boolean", # Locationも英語に
+    "location": "3D View > Sidebar > Multi-Part Boolean",
     "description": "Automatically splits both base and cutter objects by their disconnected mesh parts, applies boolean operations to all combinations, and joins the results. Results are stored in a new collection each time.", # Descriptionも英語に
     "category": "Object",
-    # "doc_url": "",
-    # "tracker_url": "",
 }
 
 import bpy
@@ -313,16 +311,14 @@ class _OBJECT_OT_apply_boolean_modifiers_internal(Operator):
 # --- UIから呼び出される一括処理オペレータ ---
 class OBJECT_OT_boolean_split_and_apply_all(Operator):
     bl_idname = "object.boolean_split_and_apply_all"
-    bl_label = pgettext("Batch Boolean Process") # オペレータ自体のラベルも翻訳
+    bl_label = pgettext("Batch Boolean Process")
     bl_options = {'REGISTER', 'UNDO'}
     bl_description = pgettext("Creates a new collection and generates the result.")
     
     def execute(self, context):
-        # print(pgettext("Batch boolean process started.")) # コンソールログは翻訳不要でも可
-        
         initial_selected = context.selected_objects[:]
         initial_active = context.active_object
-        bool_operation = context.scene.mpb_props.bool_operation_prop # PropertyGroup経由でアクセス
+        bool_operation = context.scene.mpb_props.bool_operation_prop
 
         if len(initial_selected) < 2: self.report({'ERROR'}, pgettext("Select at least two objects: a base (active) and a cutter.")); return {'CANCELLED'}
         if not initial_active: self.report({'ERROR'}, pgettext("Active object (base) is missing.")); return {'CANCELLED'}
@@ -338,18 +334,20 @@ class OBJECT_OT_boolean_split_and_apply_all(Operator):
         base_obj_name = base_obj_original_ref.name
         cutter_obj_name = cutter_obj_original_ref.name
 
-        timestamp = time.strftime("%Y%m%d_%H%M%S")
-        base_collection_name_stem = "MultiPartBoolean_Result" # コレクション名も英語ベースに
-        unique_result_collection_name = f"{base_collection_name_stem}_{timestamp}"
-        counter = 0
-        final_collection_name_to_create = unique_result_collection_name
+        # ★★★ 結果コレクション名の生成ロジックを変更 ★★★
+        base_collection_name_stem = "MultiPartBoolean_Result"
+        counter = 1
+        # 3桁の連番で開始 (例: _001)。必要に応じて :02d (2桁) などに変更可能
+        final_collection_name_to_create = f"{base_collection_name_stem}_{counter:03d}" 
+
+        # 既存のコレクション名と衝突しないようにカウンターを増やす
         while final_collection_name_to_create in bpy.data.collections:
             counter += 1
-            final_collection_name_to_create = f"{unique_result_collection_name}_{counter:02d}"
+            final_collection_name_to_create = f"{base_collection_name_stem}_{counter:03d}"
         
         result_collection = bpy.data.collections.new(final_collection_name_to_create)
         context.view_layer.layer_collection.collection.children.link(result_collection)
-        # self.report({'INFO'}, pgettext("Created new result collection: '{coll_name}'").format(coll_name=result_collection.name)) # 処理成功時まで待つ
+        print(f"Created new result collection: '{result_collection.name}'") # コンソールへのログ出力
         
         status_mod_add = bpy.ops.object._boolean_per_loose_part_internal(
             bool_operation_str=bool_operation,
@@ -397,7 +395,7 @@ class OBJECT_OT_boolean_split_and_apply_all(Operator):
         if final_combined_obj_name_from_prop:
             self.report({'INFO'}, pgettext("Batch boolean process completed. Result: '{result_name}' in collection '{coll_name}'").format(result_name=final_combined_obj_name_from_prop, coll_name=result_collection.name))
         else:
-            self.report({'WARNING'}, pgettext("Batch boolean process completed. Result: Unknown in collection '{coll_name}'").format(coll_name=result_collection.name)) # 警告レベルに
+            self.report({'WARNING'}, pgettext("Batch boolean process completed. Result: Unknown in collection '{coll_name}'").format(coll_name=result_collection.name))
         
         if final_combined_obj_name_from_prop and final_combined_obj_name_from_prop in context.view_layer.objects:
             bpy.ops.object.select_all(action='DESELECT')
@@ -406,7 +404,7 @@ class OBJECT_OT_boolean_split_and_apply_all(Operator):
             context.view_layer.objects.active = final_obj
             
         return {'FINISHED'}
-
+        
 # --- UIパネル定義 ---
 class VIEW3D_PT_multi_part_boolean_panel(Panel): # クラス名も変更
     bl_label = pgettext("Multi-Part Boolean") # パネルのタイトルも翻訳

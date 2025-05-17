@@ -6,7 +6,11 @@ Multi-Part Boolean is a Blender addon designed to execute complex boolean operat
 For example, it can perform a boolean operation on an object like a figure's hair part, which consists of a collection of independent strands, while maintaining the separation of each strand in the final result.
 
 
-https://github.com/user-attachments/assets/1bf95a30-19e5-4599-9cfb-f5e51d5bd7c5
+
+
+
+https://github.com/user-attachments/assets/d1baf137-dc0c-4561-b100-fb0221a7138c
+
 
 
 ## Features

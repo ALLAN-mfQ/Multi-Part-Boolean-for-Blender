@@ -54,15 +54,7 @@ https://github.com/user-attachments/assets/d1baf137-dc0c-4561-b100-fb0221a7138c
 ## ライセンス
 Multi-Part Boolean は **GNU General Public License v3 (GPLv3)** の下で公開されています。このアドオンは自由に使用、改変、配布できますが、派生作品も同じライセンスで公開する必要があります。詳細は [LICENSE](LICENSE) ファイルを参照してください。  
 
-## 開発者を応援☕
 
-もし **マルチパート・ブーリアン** を気に入っていただけましたら、開発者にコーヒー一杯分のご支援をいただけると大変嬉しいです！
-皆様からのサポートは、このアドオンの継続的な開発や、Blenderコミュニティのためのさらなる便利なツールを作成する大きなモチベーションとなります。
-
-*   [PayPalで支援する](https://paypal.me/kiutsugawa?country.x=JP&locale.x=ja_JP)
-   
-
-ご支援に心より感謝いたします！
 ## 著者
 
 - **ALLAN-mfQ　（キュー）**  

@@ -55,16 +55,6 @@ https://github.com/user-attachments/assets/d1baf137-dc0c-4561-b100-fb0221a7138c
 ## License
 Multi-Part Boolean is released under the **GNU General Public License v3 (GPLv3)**. This addon can be freely used, modified, and distributed, but any derivative works must also be released under the same license. For details, please refer to the [LICENSE](LICENSE) file.
 
-## Support the Developer / Buy Me a Coffee? ☕
-
-If you find **Multi-Part Boolean** useful and would like to support its development, I’d be thrilled if you could buy me a coffee! 
-Any support is greatly appreciated and helps keep me motivated to maintain this addon and create more helpful tools for the Blender community.
-
-*   [Donate via PayPal](https://paypal.me/kiutsugawa?country.x=JP&locale.x=ja_JP)
-
-
-Thank you for your support!
-
 ## Author
 
 - **ALLAN-mfQ (Q)**  
